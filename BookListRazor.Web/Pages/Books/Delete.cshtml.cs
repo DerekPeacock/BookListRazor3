@@ -28,7 +28,7 @@ namespace BookListRazor.Web.Pages.Books
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.Id == id);
+            Book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Book == null)
             {
@@ -44,11 +44,11 @@ namespace BookListRazor.Web.Pages.Books
                 return NotFound();
             }
 
-            Book = await _context.Book.FindAsync(id);
+            Book = await _context.Books.FindAsync(id);
 
             if (Book != null)
             {
-                _context.Book.Remove(Book);
+                _context.Books.Remove(Book);
                 await _context.SaveChangesAsync();
             }
 

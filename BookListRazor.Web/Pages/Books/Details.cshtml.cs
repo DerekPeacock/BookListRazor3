@@ -27,7 +27,7 @@ namespace BookListRazor.Web.Pages.Books
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.Id == id);
+            Book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Book == null)
             {

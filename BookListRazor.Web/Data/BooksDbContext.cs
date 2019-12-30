@@ -13,6 +13,6 @@ namespace BookListRazor.Web.Models
         {
         }
 
-        public DbSet<Book> Book { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }

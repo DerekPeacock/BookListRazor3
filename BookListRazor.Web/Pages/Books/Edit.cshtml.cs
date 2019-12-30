@@ -29,7 +29,7 @@ namespace BookListRazor.Web.Pages.Books
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.Id == id);
+            Book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Book == null)
             {
@@ -70,7 +70,7 @@ namespace BookListRazor.Web.Pages.Books
 
         private bool BookExists(int id)
         {
-            return _context.Book.Any(e => e.Id == id);
+            return _context.Books.Any(e => e.Id == id);
         }
     }
 }
