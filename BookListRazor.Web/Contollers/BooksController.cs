@@ -24,5 +24,21 @@ namespace BookListRazor.Web.Contollers
         {
             return Json(new { data = _db.Books.ToList() });
         }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var book = _db.Books.FirstOrDefault(u => u.Id == id);
+
+            if(book == null)
+            {
+                return Json(new { success = false, message = "Error Deleting!" });
+            }
+
+            _db.Books.Remove(book);
+            _db.SaveChanges();
+
+            return Json(new { success = true, message = "Delete Completed!" });
+        }
     }
 }
